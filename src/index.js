@@ -1,30 +1,27 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import React, { Component } from 'react'
+import {render} from 'react-dom'
 
-let bookList = [
-  { title: "Hunger", author: "Roxane Gay", pages: 320 },
-  { title: "Hunger", author: "Roxane Gay", pages: 320 },
-  { title: "Hunger", author: "Roxane Gay", pages: 320 },
-  { title: "Hunger", author: "Roxane Gay", pages: 320 }
-];
+const Book = ({title, author, pages}) => {
+    return (
+        <section>
+            <h2>{title}</h2>
+            <p>by: {author}</p>
+            <p>Pages: {pages} pages</p>
+        </section>
+    )
+}
 
-const Book = ({ title, author, pages }) => {
-  return (
-    <section>
-      <h2>{title}</h2>
-      <p>by: {author}</p>
-      <p>Pages: {pages} pages</p>
-    </section>
-  );
-};
+const Library = () => {
+    return (
+        <div>
+            <Book title="A Little Life" author="Hanya Yanagihara" pages={505}/>
+            <Book title="Two From the Heart" author="James Patterson" pages={220}/>
+            <Book title="Five Point Someone" author="Chetan Bhagat" pages={315}/>
+        </div>
+    )
+}
 
-const Library = ({ books }) => {
-  return (
-    <div>
-      {books.map(book => (
-        <Book title={book.title} author={book.author} pages={book.pages} />
-      ))}
-    </div>
-  );
-};
-render(<Library books={bookList} />, document.getElementById("root"));
+render(
+    <Library />,
+    document.getElementById('root')
+)
